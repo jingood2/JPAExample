@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="252040684">
+    <data-source source="LOCAL" name="MySQL - spring@localhost" uuid="6ea11928-0a27-43a9-af5f-c033f1df6589">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/spring</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfdedf9a</user-password>
+      <schema-pattern>spring.*</schema-pattern>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

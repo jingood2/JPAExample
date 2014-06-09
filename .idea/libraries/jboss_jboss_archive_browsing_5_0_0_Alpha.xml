@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jboss:jboss-archive-browsing:5.0.0.Alpha" type="repository">
+    <properties maven-id="jboss:jboss-archive-browsing:5.0.0.Alpha" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jboss-archive-browsing-5.0.0.Alpha.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

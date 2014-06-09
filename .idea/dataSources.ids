@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - spring@localhost" uuid="6ea11928-0a27-43a9-af5f-c033f1df6589">
+    <database-info product="MySQL" version="5.6.17-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.29 ( Revision: alexander.soklakov@oracle.com-20140120140810-s44574olh90i6i4l )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="spring"/>
+    <table name="EVENT" schema="" catalog="spring" type="TABLE">
+      <column name="EVENT_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="DATE" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="EVENT_ID"/>
+      <exported-key name="rank_ibfk_1" table="RANK" schema="" catalog="spring" columns="EVENT_ID"/>
+      <exported-key name="ticket_ibfk_1" table="TICKET" schema="" catalog="spring" columns="EVENT_ID"/>
+    </table>
+    <table name="RANK" schema="" catalog="spring" type="TABLE">
+      <column name="RANK_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="PRICE" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4"/>
+      <column name="EVENT_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="RANK_ID"/>
+      <foreign-key name="rank_ibfk_1" columns="EVENT_ID" ref-table="EVENT" ref-schema="" ref-catalog="spring" ref-columns="EVENT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="ticket_ibfk_2" table="TICKET" schema="" catalog="spring" columns="RANK_ID"/>
+    </table>
+    <table name="RESERVATION" schema="" catalog="spring" type="TABLE">
+      <column name="RESERVATION_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4"/>
+      <column name="USER_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4"/>
+      <column name="RESERVED_TS" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="RESERVATION_ID"/>
+      <foreign-key name="reservation_ibfk_1" columns="RESERVATION_ID" ref-table="TICKET" ref-schema="" ref-catalog="spring" ref-columns="TICKET_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="reservation_ibfk_2" columns="USER_ID" ref-table="USER" ref-schema="" ref-catalog="spring" ref-columns="USER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="TICKET" schema="" catalog="spring" type="TABLE">
+      <column name="TICKET_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EVENT_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4"/>
+      <column name="RANK_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="TICKET_ID"/>
+      <foreign-key name="ticket_ibfk_1" columns="EVENT_ID" ref-table="EVENT" ref-schema="" ref-catalog="spring" ref-columns="EVENT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="ticket_ibfk_2" columns="RANK_ID" ref-table="RANK" ref-schema="" ref-catalog="spring" ref-columns="RANK_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="reservation_ibfk_1" table="RESERVATION" schema="" catalog="spring" columns="RESERVATION_ID"/>
+    </table>
+    <table name="USER" schema="" catalog="spring" type="TABLE">
+      <column name="USER_ID" sqlType="MEDIUMINT" length="7" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="USER_ID"/>
+      <exported-key name="reservation_ibfk_2" table="RESERVATION" schema="" catalog="spring" columns="USER_ID"/>
+    </table>
+  </data-source>
+</component>
